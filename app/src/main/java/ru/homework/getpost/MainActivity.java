@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         nextDogButton = findViewById(R.id.nextDogButton);
         textViewResult = findViewById(R.id.id_textview);
 
-        String url = "https://gc-euro.ru/anonim/getresult?id=1&name=test";
+        //String url = "https://gc-euro.ru/anonim/getresult?id=1&name=test";
         String urlFile = "https://gc-euro.ru/anonim/sendfile";
 
         // создаем объект OkHttpClient
@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image_foto);
 
-       // присваиваем ImageView
+       // присваиваем ImageView для проверки вывода картинки на экран
         imageView.setImageBitmap(bitmap);
-        Log.d("MyLog", bitmap.toString());
+        //Log.d("MyLog", bitmap.toString());
 
         RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("file", file.getName(),RequestBody.create(MediaType.parse("image/png"), file))
