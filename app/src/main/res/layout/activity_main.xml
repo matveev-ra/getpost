@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root layout of our activity -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+
+        <TextView
+            android:id="@+id/id_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#ccc"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Привет Юзер!"
+            android:textColor="#f84c04"
+            android:textSize="40sp"
+            tools:ignore="MissingConstraints" />
+
+
+
+
+    <!--  Этот ImageView используется для показа изображений собак пользователю   -->
+
+    <ImageView
+        android:id="@+id/dogImageView"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/nextDogButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="10dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!--  Эта кнопка используется для выполнения нового HTTP-запроса для
+    получения нового изображения собаки.  -->
+
+
+
+    <Button
+        android:id="@+id/nextDogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
