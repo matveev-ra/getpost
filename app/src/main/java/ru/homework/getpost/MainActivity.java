@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 //        File path = Environment.getExternalStoragePublicDirectory(
 //                Environment.DIRECTORY_PICTURES);
 
-        File file = new File("drawable");
+        File file = new File("drawable/test_image_foto.png");
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image_foto);
 
