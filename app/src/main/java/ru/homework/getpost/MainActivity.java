@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -49,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //new FilesUploadingTask("../drawable/test_image_foto.png").execute();
-
+        //new FilesUploadingTask("raw/img_test.png").execute();
 
         imageView = findViewById(R.id.dogImageView);
         nextDogButton = findViewById(R.id.nextDogButton);
@@ -62,22 +62,38 @@ public class MainActivity extends AppCompatActivity {
         // создаем объект OkHttpClient
         OkHttpClient client = new OkHttpClient();
 
-//        File path = Environment.getExternalStoragePublicDirectory(
-//                Environment.DIRECTORY_PICTURES);
+        //File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
-        File file = new File("drawable/test_image_foto.png");
+        File file = new File("raw/img_test.png");
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_test);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image_foto);
+        //Кодирование картинки
+//        @SuppressLint("ResourceType") InputStream ins = getResources().openRawResource(R.drawable.img_test);
+//        byte[] bytes = new byte[0];
+//        try {
+//            bytes = IOUtils.toByteArray(ins);
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        String encoded = Base64Utils.encode(bytes);
+//        System.out.println("НАШ ЗАКОДИРОВАННЫЙ ТЕКСТ: " + encoded);
+        //Раскодирование
+//        byte[] decode = Base64Utils.decode(encoded);
+//        ImageView imageView = findViewById(R.id.imageView);
+//        Bitmap image = BitmapFactory.decodeByteArray(decode, 0, decode.length);
+//        imageView.setImageBitmap(image);
 
-       // присваиваем ImageView для проверки вывода картинки на экран
-        imageView.setImageBitmap(bitmap);
+
+
+        // присваиваем ImageView для проверки вывода картинки на экран
+        // imageView.setImageBitmap(bitmap);
         //Log.d("MyLog", bitmap.toString());
 
         RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("file", file.getName(),RequestBody.create(MediaType.parse("image/png"), file))
                 .addFormDataPart("some-field", "some-value")
                 .build();
-
 
         Request request = new Request.Builder()
                 .url(urlFile)
